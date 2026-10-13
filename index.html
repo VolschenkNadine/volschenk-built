@@ -5005,290 +5005,7 @@ mobileLinks.forEach(link => {
 });
 
 
-/* =========================================================
-   ADVANCED 3D HERO V
-========================================================= */
-
-const hero =
-    document.querySelector(
-        '.hero'
-    );
-
-const vObject =
-    document.getElementById(
-        'vObject'
-    );
-
-const vLight =
-    document.getElementById(
-        'vLight'
-    );
-
-const vFloor =
-    document.getElementById(
-        'vFloor'
-    );
-
-const heroLight =
-    document.getElementById(
-        'heroLight'
-    );
-
-let targetRotateX = 0;
-let targetRotateY = 0;
-
-let currentRotateX = 0;
-let currentRotateY = 0;
-
-let targetTranslateX = 0;
-let targetTranslateY = 0;
-
-let currentTranslateX = 0;
-let currentTranslateY = 0;
-
-let pointerActive = false;
-
-const heroFinePointer =
-    window.matchMedia(
-        '(hover: hover) and (pointer: fine)'
-    ).matches;
-
-
-if(heroFinePointer){
-
-    hero.addEventListener(
-        'mousemove',
-        (e) => {
-
-            pointerActive = true;
-
-            const rect =
-                hero.getBoundingClientRect();
-
-            const x =
-                (e.clientX - rect.left) /
-                rect.width;
-
-            const y =
-                (e.clientY - rect.top) /
-                rect.height;
-
-            targetRotateY =
-                (x - .5) * 15;
-
-            targetRotateX =
-                (y - .5) * -12;
-
-            targetTranslateX =
-                (x - .5) * 10;
-
-            targetTranslateY =
-                (y - .5) * 8;
-
-            vLight.style.setProperty(
-                '--light-x',
-                `${(x - .5) * 250}px`
-            );
-
-            vLight.style.setProperty(
-                '--light-y',
-                `${(y - .5) * 180}px`
-            );
-
-            heroLight.style.transform =
-                `
-                translate(
-                    calc(-50% + ${(x - .5) * 180}px),
-                    calc(-50% + ${(y - .5) * 130}px)
-                )
-                `;
-
-            vFloor.style.setProperty(
-                '--shadow-scale',
-                `${1 + Math.abs(x - .5) * .32}`
-            );
-
-            vFloor.style.setProperty(
-                '--shadow-y',
-                `${1 - Math.abs(y - .5) * .12}`
-            );
-
-        }
-    );
-
-
-    hero.addEventListener(
-        'mouseleave',
-        () => {
-
-            pointerActive = false;
-
-            targetRotateX = 0;
-            targetRotateY = 0;
-
-            targetTranslateX = 0;
-            targetTranslateY = 0;
-
-            vLight.style.setProperty(
-                '--light-x',
-                '0px'
-            );
-
-            vLight.style.setProperty(
-                '--light-y',
-                '0px'
-            );
-
-            heroLight.style.transform =
-                'translate(-50%,-50%)';
-
-            vFloor.style.setProperty(
-                '--shadow-scale',
-                '1'
-            );
-
-            vFloor.style.setProperty(
-                '--shadow-y',
-                '1'
-            );
-
-        }
-    );
-
-}
-
-
-function animate3D(){
-
-    currentRotateX +=
-        (targetRotateX - currentRotateX) * .075;
-
-    currentRotateY +=
-        (targetRotateY - currentRotateY) * .075;
-
-    currentTranslateX +=
-        (targetTranslateX - currentTranslateX) * .075;
-
-    currentTranslateY +=
-        (targetTranslateY - currentTranslateY) * .075;
-
-    const time =
-        performance.now() * .001;
-
-    const floatY =
-        Math.sin(time * 1.05) * 7;
-
-    const floatX =
-        Math.cos(time * .72) * 2.5;
-
-    const idleRotateY =
-        Math.sin(time * .65) * 1.4;
-
-    const idleRotateX =
-        Math.cos(time * .82) * .8;
-
-    vObject.style.transform = `
-        translate3d(
-            ${currentTranslateX + floatX}px,
-            ${currentTranslateY + floatY}px,
-            0
-        )
-        rotateX(
-            ${currentRotateX + idleRotateX}deg
-        )
-        rotateY(
-            ${currentRotateY + idleRotateY}deg
-        )
-    `;
-
-    const shadowScale =
-        1 -
-        Math.abs(floatY) * .018;
-
-    vFloor.style.transform =
-        `
-        translateX(-50%)
-        scaleX(
-            calc(
-                var(--shadow-scale,1) *
-                ${shadowScale}
-            )
-        )
-        scaleY(var(--shadow-y,1))
-        `;
-
-    if(!pointerActive){
-
-        const ambientX =
-            Math.sin(time * .35) * 45;
-
-        const ambientY =
-            Math.cos(time * .28) * 30;
-
-        heroLight.style.transform =
-            `
-            translate(
-                calc(-50% + ${ambientX}px),
-                calc(-50% + ${ambientY}px)
-            )
-            `;
-
-    }
-
-    requestAnimationFrame(
-        animate3D
-    );
-
-}
-
-animate3D();
-
-
-/* =========================================================
-   MOBILE 3D MOTION
-========================================================= */
-
-if(!heroFinePointer){
-
-    let mobileTime = 0;
-
-    function mobileVAnimation(){
-
-        mobileTime += .016;
-
-        const mobileRotateY =
-            Math.sin(mobileTime * .75) * 7;
-
-        const mobileRotateX =
-            Math.cos(mobileTime * .58) * 4;
-
-        const mobileFloat =
-            Math.sin(mobileTime * 1.1) * 5;
-
-        vObject.style.transform = `
-            translate3d(
-                0,
-                ${mobileFloat}px,
-                0
-            )
-            rotateX(
-                ${mobileRotateX}deg
-            )
-            rotateY(
-                ${mobileRotateY}deg
-            )
-        `;
-
-        requestAnimationFrame(
-            mobileVAnimation
-        );
-
-    }
-
-    mobileVAnimation();
-
-}
-
+/* Legacy 3D V hero animation removed: current architectural hero uses its own effects. */
 
 /* =========================================================
    BUILD SYSTEM INTERACTION
@@ -5749,7 +5466,8 @@ if (businessCardScene) {
         paths[0].parentNode.appendChild(dot); return dot;
     })));
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let visible = true, frame = null, phase = 0, last = null;
+    const mobileOrbit = window.matchMedia('(max-width: 768px) and (pointer: coarse)');
+    let visible = true, frame = null, phase = 0, last = null, lastDraw = null;
     function draw(t) {
         for (let ring = 0; ring < 5; ring++) {
             const turn = t * [.13,-.11,.16,-.09,.12][ring] + ring * .75;
@@ -5757,8 +5475,9 @@ if (businessCardScene) {
             const roll = [-.19,.9,-.75,.45,1.45][ring] + t * [.065,-.055,.045,-.07,.05][ring];
             const radius = [238,260,279,250,292][ring];
             const parts = ['', '']; let previousSide = null, previous = null;
-            for (let n = 0; n <= 240; n++) {
-                const angle = n / 240 * Math.PI * 2;
+            const segments = mobileOrbit.matches ? 100 : 240;
+            for (let n = 0; n <= segments; n++) {
+                const angle = n / segments * Math.PI * 2;
                 let x = Math.cos(angle)*radius;
                 let y = Math.sin(angle)*radius;
                 const depth = y*Math.sin(tilt);
@@ -5800,7 +5519,11 @@ if (businessCardScene) {
         frame=null;
         if (!visible || document.hidden || reduced.matches) { last=null; return; }
         if (last !== null) phase += Math.min(64,now-last)/1000;
-        last=now; draw(phase); frame=requestAnimationFrame(animate);
+        last=now;
+        if (!mobileOrbit.matches || lastDraw === null || now-lastDraw >= 32) {
+            draw(phase); lastDraw=now;
+        }
+        frame=requestAnimationFrame(animate);
     }
     function resume() {
         if (!frame && visible && !document.hidden && !reduced.matches) frame=requestAnimationFrame(animate);
@@ -5811,6 +5534,7 @@ if (businessCardScene) {
         new IntersectionObserver(entries => { visible=entries[0].isIntersecting; resume(); }, {rootMargin:'120px'}).observe(businessCardScene);
     }
     document.addEventListener('visibilitychange', resume);
+    mobileOrbit.addEventListener?.('change', () => { lastDraw=null; resume(); });
     reduced.addEventListener('change', () => { last=null; if(reduced.matches) draw(0); else resume(); });
     resume();
 }
