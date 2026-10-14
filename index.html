@@ -22,7 +22,7 @@
 <meta content="VOLSCHENK BUILT | Bespoke Web Development" name="twitter:title"/>
 <meta content="Bespoke websites coded from scratch." name="twitter:description"/>
 <meta content="https://volschenkbuilt.com/og-image.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"VOLSCHENK BUILT","url":"https://volschenkbuilt.com/","description":"Bespoke web development and responsive website design.","founder":{"@type":"Person","name":"Nadine Volschenk"},"email":"nadine@volschenkbuilt.co.za","areaServed":"Worldwide"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"VOLSCHENK BUILT","url":"https://volschenkbuilt.com/","description":"Bespoke web development and responsive website design.","founder":{"@type":"Person","name":"Nadine Volschenk"},"email":"nadine.marshall45@gmail.com","areaServed":"Worldwide"}</script>
 <link href="favicon.png" rel="icon" type="image/png"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -3738,7 +3738,7 @@ a{
 
 
 /* =========================================================
-   BUSINESS CARD CONTACT
+   CODE TO CREATION SECTION
 ========================================================= */
 
 .contact{
@@ -3805,186 +3805,6 @@ a{
 a.contact-detail:hover{
     color:#fff;
     transform:translateY(-2px);
-}
-
-/* =========================================================
-   FLOATING GLASS BUSINESS CARD SHOWCASE
-   Two independent cards + true layered orbital paths
-========================================================= */
-.business-card-section{
-    position:relative;
-    z-index:2;
-    width:100%;
-    max-width:900px;
-    margin:30px auto 0;
-    perspective:1600px;
-}
-.business-card-scene{
-    position:relative;
-    width:min(580px,84vw);
-    aspect-ratio:1184 / 734;
-    margin:0 auto;
-    perspective:1400px;
-    transform-style:preserve-3d;
-    isolation:isolate;
-    --tiltX:0deg;
-    --tiltY:0deg;
-    --moveX:0px;
-    --moveY:0px;
-}
-.business-card-scene::before{
-    content:"";
-    position:absolute;
-    left:17%;right:17%;bottom:0;
-    height:20%;border-radius:50%;
-    background:rgba(0,0,0,.78);
-    filter:blur(29px);
-    pointer-events:none;
-    z-index:0;
-}
-.business-card-scene::after{
-    content:"";
-    position:absolute;
-    inset:-10%;
-    border-radius:50%;
-    background:radial-gradient(ellipse,rgba(255,255,255,.085),rgba(255,255,255,.025) 38%,transparent 70%);
-    filter:blur(19px);
-    pointer-events:none;
-    z-index:0;
-}
-/* Original orbital elements are the rear halves; JS adds matching front arcs.
-   They share the same animation so each ring crosses in front of the cards. */
-.card-orbit{
-    position:absolute;
-    left:50%;top:51%;
-    width:112%;height:85%;
-    border:1px solid rgba(245,248,255,.57);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:1;
-    transform-style:preserve-3d;
-    box-shadow:0 0 10px rgba(255,255,255,.14),inset 0 0 7px rgba(255,255,255,.06);
-    will-change:transform;
-    animation:cardOrbitOne 16s linear infinite;
-    animation-play-state:running;
-}
-.card-orbit-two{
-    width:104%;height:101%;
-    border-color:rgba(255,255,255,.38);
-    animation-name:cardOrbitTwo;
-    animation-duration:21s;
-}
-.card-orbit-three{
-    width:122%;height:68%;
-    border-color:rgba(255,255,255,.28);
-    animation-name:cardOrbitThree;
-    animation-duration:26s;
-}
-.card-orbit.orbit-foreground{
-    z-index:6;
-    clip-path:inset(50% -12px -12px -12px);
-    opacity:.72;
-}
-.business-card,.business-card-rear{
-    position:absolute;
-    display:block;
-    overflow:hidden;
-    border-radius:4px;
-    transform-style:preserve-3d;
-    -webkit-transform-style:preserve-3d;
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
-    will-change:transform;
-}
-.business-card{
-    z-index:4;
-    left:4%;top:23%;
-    width:64%;height:64%;
-    transform:translate3d(var(--moveX),var(--moveY),50px) rotateX(var(--tiltX)) rotateY(var(--tiltY)) rotateZ(-7deg);
-    box-shadow:0 28px 58px rgba(0,0,0,.56),0 0 28px rgba(255,255,255,.09);
-    animation:frontCardFloat 6.8s ease-in-out infinite;
-    animation-play-state:running;
-}
-.business-card-rear{
-    z-index:3;
-    left:48%;top:1%;
-    width:62%;height:62%;
-    transform:translate3d(calc(var(--moveX) * -.55),calc(var(--moveY) * -.55),0) rotateX(calc(var(--tiltX) * -.55)) rotateY(calc(var(--tiltY) * -.55)) rotateZ(8deg);
-    box-shadow:0 24px 52px rgba(0,0,0,.48),0 0 28px rgba(255,255,255,.08);
-    animation:rearCardFloat 7.8s ease-in-out infinite;
-    animation-play-state:running;
-}
-.business-card img,.business-card-rear img{
-    display:block;width:100%;height:100%;object-fit:cover;
-    user-select:none;-webkit-user-drag:none;pointer-events:none;
-}
-.business-card::before,.business-card-rear::before{
-    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:linear-gradient(120deg,rgba(255,255,255,.16),transparent 28%,transparent 72%,rgba(255,255,255,.065));
-    mix-blend-mode:screen;opacity:.55;
-}
-.business-card::after,.business-card-rear::after{
-    content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
-    border:1px solid rgba(255,255,255,.29);border-radius:4px;
-    box-shadow:inset 0 0 15px rgba(255,255,255,.07),0 0 18px rgba(255,255,255,.06);
-}
-.business-card-glare{
-    position:absolute;inset:0;z-index:4;pointer-events:none;
-    opacity:.2;mix-blend-mode:screen;
-    background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.26) 43%,transparent 61%);
-    transform:translateX(-120%);
-}
-.business-card-scene.card-scene-visible .business-card,
-.business-card-scene.card-scene-visible .business-card-rear,
-.business-card-scene.card-scene-visible .card-orbit{
-    animation-play-state:running;
-}
-.business-card-hint{
-    margin-top:28px;font-size:7px;letter-spacing:3px;
-    color:rgba(255,255,255,.3);
-}
-@keyframes frontCardFloat{
-    0%,100%{transform:translate3d(var(--moveX),var(--moveY),50px) rotateX(var(--tiltX)) rotateY(var(--tiltY)) rotateZ(-7deg);}
-    50%{transform:translate3d(var(--moveX),calc(var(--moveY) - 13px),62px) rotateX(calc(var(--tiltX) + 2deg)) rotateY(var(--tiltY)) rotateZ(-5deg);}
-}
-@keyframes rearCardFloat{
-    0%,100%{transform:translate3d(calc(var(--moveX) * -.55),calc(var(--moveY) * -.55),0) rotateX(calc(var(--tiltX) * -.55)) rotateY(calc(var(--tiltY) * -.55)) rotateZ(8deg);}
-    50%{transform:translate3d(calc(var(--moveX) * -.55),calc(var(--moveY) * -.55 + 11px),12px) rotateX(calc(var(--tiltX) * -.55 - 2deg)) rotateY(calc(var(--tiltY) * -.55)) rotateZ(10deg);}
-}
-@keyframes cardOrbitOne{
-    from{transform:translate(-50%,-50%) rotate(-22deg) rotateX(62deg) rotateZ(0deg);}
-    to{transform:translate(-50%,-50%) rotate(-22deg) rotateX(62deg) rotateZ(360deg);}
-}
-@keyframes cardOrbitTwo{
-    from{transform:translate(-50%,-50%) rotate(31deg) rotateX(72deg) rotateZ(360deg);}
-    to{transform:translate(-50%,-50%) rotate(31deg) rotateX(72deg) rotateZ(0deg);}
-}
-@keyframes cardOrbitThree{
-    from{transform:translate(-50%,-50%) rotate(8deg) rotateX(52deg) rotateZ(0deg);}
-    to{transform:translate(-50%,-50%) rotate(8deg) rotateX(52deg) rotateZ(360deg);}
-}
-@media(max-width:768px){
-    .contact{padding:82px 20px 78px;}
-    .contact-kicker{margin-bottom:18px;font-size:7px;letter-spacing:3px;}
-    .contact-cta{margin-top:4px;}
-    .business-card-contact{padding:10px 20px 82px;}
-    .contact-details{gap:12px 18px;margin-bottom:38px;}
-    .contact-detail{font-size:7px;letter-spacing:1.6px;}
-    .business-card-section{margin-top:10px;perspective:1200px;}
-    .business-card-scene{width:min(100%,460px);}
-    .business-card{left:1%;top:26%;width:67%;height:67%;}
-    .business-card-rear{left:45%;top:2%;width:64%;height:64%;}
-    .business-card-hint{margin-top:22px;font-size:6px;letter-spacing:2.4px;}
-    .card-orbit{width:116%;height:90%;}
-    .card-orbit-two{width:108%;height:105%;}
-    .card-orbit-three{width:126%;height:72%;}
-}
-@media(min-width:769px){
-    .business-card-scene{cursor:default;}
-    .business-card-scene:hover .business-card,
-    .business-card-scene:hover .business-card-rear{
-        filter:drop-shadow(0 0 16px rgba(255,255,255,.1));
-    }
 }
 
 /* =========================================================
@@ -4177,7 +3997,7 @@ a.contact-detail:hover{
 .vb-projects-lead{max-width:610px;font-size:13px;line-height:1.9;color:#aaa;margin-top:22px}
 .vb-projects-side{font-size:11px;letter-spacing:3px;line-height:2.7;border-left:1px solid #555;padding-left:36px;min-width:210px}
 .vb-projects-side span{display:block;color:#777;font-size:8px;letter-spacing:1px;margin-top:12px}
-.vb-projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.vb-projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;align-items:start}
 .vb-project-card{min-width:0;border:1px solid #333;background:linear-gradient(145deg,#191919,#0d0d0d);transition:border-color .4s,transform .5s,box-shadow .5s;overflow:hidden}
 @media(hover:hover){.vb-project-card:hover{transform:translateY(-8px);border-color:#777;box-shadow:0 30px 60px #0009}}
 .vb-project-media{height:245px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 80%,#49433b 0%,#171717 55%,#0b0b0b 90%);padding:22px 25px 28px}
@@ -4238,58 +4058,7 @@ a.contact-detail:hover{
 .v-stage{perspective:1600px;}
 /* Remove former layered highlights only in the hero */
 #vLight,#vFloor{opacity:.12;}
-</style><style id="vb-card-ring-weave">
-/* Flat sibling compositing makes front arcs reliably cross the card images. */
-#businessCardScene{transform-style:flat}
-#businessCardScene>.card-orbit{display:none!important}
-#businessCardScene>.vb-weave-orbits{position:absolute;left:-24.1379%;top:-29.973%;width:148.2759%;height:160.763%;overflow:visible;pointer-events:none;transform:none;filter:drop-shadow(0 0 3px rgba(255,255,255,.14))}
-#businessCardScene>.vb-weave-rear{z-index:1;opacity:.65}
-#businessCardScene>.vb-weave-front{z-index:6;opacity:.9}
-</style>
-<style id="vb-saturn-depth-finish">
-#businessCardScene>.vb-weave-rear{opacity:.32;filter:none}
-#businessCardScene>.vb-weave-front{opacity:.88;filter:drop-shadow(0 0 2px rgba(235,243,255,.42))}
-#businessCardScene .vb-weave-orbits path{stroke-linecap:round;stroke-linejoin:round}
-</style>
-<style id="vb-luminous-orbital-bands">
-#businessCardScene>.vb-weave-front{opacity:.88;filter:drop-shadow(0 0 4px rgba(215,236,255,.28))}
-#businessCardScene>.vb-weave-rear{opacity:.36}
-#businessCardScene .vb-orbit-band{filter:blur(1.1px)}
-#businessCardScene .vb-orbit-spark{filter:drop-shadow(0 0 3px rgba(225,242,255,.8))}
-#businessCardScene::after{background:radial-gradient(ellipse at 50% 55%,rgba(212,231,255,.12),rgba(231,239,255,.045) 36%,transparent 69%);filter:blur(24px)}
-</style>
-<style id="vb-orbits-edge-clearance">
-.business-card-contact{padding-top:150px}
-@media(max-width:768px){.business-card-contact{padding-top:115px}}
-</style>
-
-<style id="vb-business-card-editorial-refinement">
-/* Refined business-card showcase: isolated to the final contact cards. */
-.business-card-contact{position:relative;isolation:isolate}
-.business-card-section{max-width:850px;margin:38px auto 0;padding:12px 0 24px}
-#businessCardScene{width:min(550px,80vw);perspective:1800px}
-#businessCardScene::before{left:22%;right:22%;bottom:4%;height:14%;background:rgba(0,0,0,.55);filter:blur(28px)}
-#businessCardScene::after{inset:0;background:radial-gradient(ellipse at 52% 48%,rgba(255,255,255,.045),transparent 67%);filter:blur(23px)}
-#businessCardScene .business-card,
-#businessCardScene .business-card-rear{border-radius:7px;border:1px solid rgba(255,255,255,.24);background:#141414;box-shadow:0 23px 52px rgba(0,0,0,.5),0 5px 15px rgba(0,0,0,.28);transition:box-shadow .5s ease,border-color .5s ease}
-#businessCardScene .business-card{left:5%;top:24%;width:64%;height:64%;animation-duration:9s}
-#businessCardScene .business-card-rear{left:46%;top:4%;width:60%;height:60%;animation-duration:11s}
-#businessCardScene .business-card::before,
-#businessCardScene .business-card-rear::before{opacity:.25;background:linear-gradient(125deg,rgba(255,255,255,.15),transparent 30%,transparent 75%,rgba(255,255,255,.07))}
-#businessCardScene .business-card::after,
-#businessCardScene .business-card-rear::after{border-radius:7px;border:1px solid rgba(255,255,255,.15);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
-#businessCardScene .business-card-glare{opacity:.10}
-#businessCardScene>.vb-weave-rear{opacity:.22;filter:none}
-#businessCardScene>.vb-weave-front{opacity:.55;filter:drop-shadow(0 0 2px rgba(235,240,248,.16))}
-#businessCardScene .vb-weave-orbits path{stroke-width:.85;stroke-linecap:round}
-#businessCardScene .vb-orbit-band{opacity:.45;filter:blur(.65px)}
-#businessCardScene .vb-orbit-spark{opacity:.45;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}
-.business-card-hint{margin-top:36px;font-size:9px;letter-spacing:2.6px;font-weight:500;color:rgba(255,255,255,.54);text-align:center}
-@media(hover:hover){#businessCardScene:hover .business-card{border-color:rgba(255,255,255,.35);box-shadow:0 30px 65px rgba(0,0,0,.55),0 7px 18px rgba(0,0,0,.32)}}
-@media(max-width:768px){.business-card-section{padding:8px 0 18px}#businessCardScene{width:min(510px,83vw)}.business-card-hint{margin-top:28px;font-size:8px;letter-spacing:1.8px}}
-@media(prefers-reduced-motion:reduce){#businessCardScene .business-card,#businessCardScene .business-card-rear{animation:none!important}}
-</style>
-<style id="vb-mobile-experience-refinement">
+</style><style id="vb-mobile-experience-refinement">
 /* Mobile-only enhancements: desktop remains untouched. */
 @media(max-width:768px){
  html,body{max-width:100%;overflow-x:clip}
@@ -4316,23 +4085,70 @@ a.contact-detail:hover{
  .signature-architecture{min-height:370px}
  .arch-assembly{scale:.82}
  .signature-pillars{gap:22px 15px}
- .business-card-contact{overflow:visible}
- .business-card-section{max-width:100%;overflow:visible}
- #businessCardScene{width:min(510px,85vw)}
- #businessCardScene>.vb-weave-front{opacity:.7}
- #businessCardScene>.vb-weave-rear{opacity:.3}
- .business-card-hint{font-size:9px;line-height:1.8;letter-spacing:1.4px}
+
+
+
+
+
+
 }
 @media(max-width:390px){
  .vb-arch-content h1 span:first-child{font-size:clamp(34px,10vw,42px)}
  .vb-arch-content h1 span:last-child{font-size:clamp(48px,13vw,56px)}
  .arch-assembly{scale:.7}
  .signature-architecture{min-height:330px}
- #businessCardScene{width:86vw}
+
 }
 @media(max-width:768px) and (prefers-reduced-motion:reduce){
  .build-module.mobile-showcase-active::before{transform:none}
  .service-card.mobile-showcase-active,.vb-project-card.mobile-showcase-active{box-shadow:none}
+}
+</style>
+
+<style id="vb-code-to-creation-style">
+/* From Code to Creation transition and responsive layout. */
+.vb-creation-section{padding:48px 5% 105px!important;overflow:hidden!important}
+.vb-creation-wrap{max-width:1100px;margin:auto;color:#fff}
+.vb-creation-heading{text-align:center;margin-bottom:44px}
+.vb-creation-kicker{font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.44)}
+.vb-creation-heading h2{font-weight:300;font-size:clamp(34px,5.7vw,74px);line-height:1.05;letter-spacing:-2px;margin:22px 0}
+.vb-creation-heading h2 strong{font-weight:700}
+.vb-creation-heading p{font-size:12px;line-height:1.8;color:rgba(255,255,255,.53)}
+.vb-creation-stage{perspective:1200px;padding:14px 0 22px}
+.vb-creation-browser{width:min(100%,840px);margin:auto;border:1px solid rgba(255,255,255,.23);background:#101114;box-shadow:0 26px 75px rgba(0,0,0,.4);transform:translate3d(0,20px,0) rotateX(3deg);opacity:.65;transition:transform 1.7s cubic-bezier(.2,.8,.2,1),opacity 1.5s ease;overflow:hidden}
+.vb-creation-wrap.is-visible .vb-creation-browser{transform:translate3d(0,0,0) rotateX(0);opacity:1}
+.vb-creation-toolbar{height:46px;border-bottom:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:12px;color:rgba(255,255,255,.42);font-size:9px;letter-spacing:1.3px}
+.vb-creation-dots{display:flex;gap:6px}.vb-creation-dots i{display:block;width:7px;height:7px;border:1px solid #72777d;border-radius:50%}
+.vb-creation-state{color:#fff;white-space:nowrap}.vb-creation-address{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vb-creation-screen{height:clamp(285px,40vw,440px);position:relative;overflow:hidden}
+.vb-creation-code,.vb-creation-result{position:absolute;inset:0;transition:opacity 2.4s ease-in-out,transform 2.6s cubic-bezier(.2,.8,.2,1)}
+.vb-creation-code{padding:clamp(22px,4vw,46px);background:linear-gradient(125deg,#101318,#191d23);color:#dce2ea;font:clamp(10px,1.35vw,14px)/2 'Consolas','Courier New',monospace;white-space:nowrap;overflow:hidden;opacity:1}
+.vb-creation-code em{font-style:normal;color:#65717e;display:inline-block;width:26px;user-select:none}
+.vb-creation-code .syntax-muted{color:#7d8995}.vb-creation-code .syntax-blue{color:#9fc9ee}.vb-creation-code .syntax-gold{color:#e9cb98}
+.vb-creation-result{background:#090909;color:white;opacity:0;transform:translate3d(0,18px,0);display:flex;flex-direction:column;justify-content:space-between;padding:25px clamp(22px,4vw,45px)}
+.vb-creation-result-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse,black,transparent 85%);pointer-events:none}
+.vb-creation-result-top,.vb-creation-result-bottom{display:flex;justify-content:space-between;position:relative;gap:12px;font-size:clamp(7px,1vw,9px);letter-spacing:2px;color:#8b8b8b}
+.vb-creation-result-top span:first-child{font-weight:700;color:#fff;font-size:17px}
+.vb-creation-result-center{position:relative;max-width:620px;margin:auto 0}
+.vb-creation-result-center>span:first-child{font-size:clamp(7px,1vw,9px);letter-spacing:3px;color:#9c9c9c}
+.vb-creation-result-center strong{display:block;font-size:clamp(45px,7.5vw,90px);line-height:.9;letter-spacing:-4px;margin:15px 0 19px}
+.vb-creation-result-line{display:block;width:58px;height:1px;background:#fff;margin-bottom:13px}
+.vb-creation-result-center p{font-size:clamp(9px,1.2vw,12px);line-height:1.8;color:#b6b6b6}
+.vb-creation-result-button{display:inline-block;border:1px solid #888;padding:12px 17px;font-size:9px;letter-spacing:1.5px;margin-top:20px}
+.vb-creation-wrap.is-finished .vb-creation-code{opacity:0;transform:translate3d(0,-14px,0);pointer-events:none}
+.vb-creation-wrap.is-finished .vb-creation-result{opacity:1;transform:translate3d(0,0,0)}
+.vb-creation-foot{display:flex;align-items:center;justify-content:center;gap:20px;font-size:8px;letter-spacing:1.8px;color:#9d9d9d;margin-top:22px}
+.vb-creation-progress{width:100px;height:1px;background:#4d4d4d}.vb-creation-progress>span{display:block;width:0;height:100%;background:white;transition:width 2.6s ease}.vb-creation-wrap.is-finished .vb-creation-progress>span{width:100%}
+@media(max-width:600px){.vb-creation-section{padding:38px 18px 80px!important}.vb-creation-heading{margin-bottom:26px}.vb-creation-screen{height:315px}.vb-creation-code{font-size:9px;line-height:2.1;padding:22px 12px}.vb-creation-code em{width:20px}.vb-creation-result{padding:19px}.vb-creation-result-center strong{font-size:clamp(40px,11vw,65px);letter-spacing:-2px}.vb-creation-result-button{padding:9px 11px;font-size:7px;margin-top:12px}.vb-creation-result-bottom{font-size:6px;letter-spacing:.6px}.vb-creation-result-top span:last-child{font-size:6px;letter-spacing:.7px}.vb-creation-foot{font-size:6px;letter-spacing:.5px;gap:9px}.vb-creation-progress{width:36px}}
+@media(prefers-reduced-motion:reduce){.vb-creation-browser,.vb-creation-code,.vb-creation-result,.vb-creation-progress>span{transition:none!important}.vb-creation-browser{opacity:1;transform:none}.vb-creation-code{opacity:0}.vb-creation-result{opacity:1;transform:none}}
+</style>
+<style id="vb-contact-gap-final-fix">
+/* Tighten the actual contact section's bottom spacing, not only the next section. */
+#contact.vb-enquiry{padding-bottom:24px!important}
+.business-card-contact.vb-creation-section{padding-top:12px!important}
+@media(max-width:768px){
+  #contact.vb-enquiry{padding-bottom:18px!important}
+  .business-card-contact.vb-creation-section{padding-top:12px!important}
 }
 </style>
 </head>
@@ -4699,9 +4515,9 @@ a.contact-detail:hover{
   <div class="vb-projects-inner">
     <div class="vb-projects-heading"><div><p class="vb-projects-eyebrow">03 <span></span> SELECTED PROJECTS</p><h2 id="vb-projects-title">Real Websites.<br><em>Real Results.</em></h2><p class="vb-projects-lead">A selection of real-world websites I've designed, coded and deployed. Explore the work, the tools and the thinking behind each build.</p></div><div class="vb-projects-side">DESIGN<br>DEVELOP<br>DEPLOY<br><span>BUILDING IDEAS WITH CODE.</span></div></div>
     <div class="vb-projects-grid">
-      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-countrywide-hero.jpg" alt="Countrywide Lowbed Services desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-countrywide-detail.jpg" alt="Countrywide Lowbed Services additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">01 <span></span> TRANSPORT & LOGISTICS</p><h3>Countrywide Lowbed Services</h3><p class="vb-project-description">A bespoke website for a South African heavy haulage company, presenting its transport capabilities and providing direct enquiry options.</p><div class="vb-project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span><span>Vercel</span></div><div class="vb-project-actions"><a href="https://www.countrywidelowbed.co.za/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-01" class="vb-case-toggle" aria-controls="vb-case-01" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-01" hidden><h4>PROJECT APPROACH</h4><p>Organizing complex transport services into a clear, accessible presentation with prominent ways for visitors to get in touch.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
-      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-sss-hero.jpg" alt="SSS Furniture Removals desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-sss-detail.jpg" alt="SSS Furniture Removals additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">02 <span></span> HOUSEHOLD & OFFICE REMOVALS</p><h3>SSS Furniture Removals</h3><p class="vb-project-description">A responsive moving-services website with clear service information, customer reviews and an online quote enquiry experience.</p><div class="vb-project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>Formspree</span></div><div class="vb-project-actions"><a href="https://sss-furniture-removals.vercel.app/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-02" class="vb-case-toggle" aria-controls="vb-case-02" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-02" hidden><h4>PROJECT APPROACH</h4><p>Making it easier for visitors to understand removal services and submit the details needed for a quote.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
-      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-boost-hero.jpg" alt="Boost by Fear desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-boost-detail.jpg" alt="Boost by Fear additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">03 <span></span> AUTOMOTIVE PERFORMANCE</p><h3>Boost by Fear</h3><p class="vb-project-description">A dark, performance-inspired website showcasing automotive services, project imagery and contact information.</p><div class="vb-project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span><span>Vercel</span></div><div class="vb-project-actions"><a href="https://boostby-fear.vercel.app/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-03" class="vb-case-toggle" aria-controls="vb-case-03" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-03" hidden><h4>PROJECT APPROACH</h4><p>Creating a distinctive automotive visual identity while keeping services and contact details easy to find.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
+      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-countrywide-hero.jpg" alt="Countrywide Lowbed Services desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-countrywide-detail.jpg" alt="Countrywide Lowbed Services additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">01 <span></span> TRANSPORT & LOGISTICS</p><h3>Countrywide Lowbed Services</h3><p class="vb-project-description">A bespoke website for a South African heavy haulage company, presenting its transport capabilities and providing direct enquiry options.</p><div class="vb-project-tags"><span>HTML5</span><span>Custom CSS3</span><span>JavaScript</span><span>Responsive Design</span><span>Cinematic Animations</span><span>Interactive UI</span><span>Form Integration</span></div><div class="vb-project-actions"><a href="https://www.countrywidelowbed.co.za/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-01" class="vb-case-toggle" aria-controls="vb-case-01" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-01" hidden><h4>PROJECT APPROACH</h4><p>Countrywide Lowbed Services was a project where I wanted to capture the strength, experience and reliability behind the business. I designed and developed the website from scratch, bringing its identity to life through bold visuals, carefully crafted layouts and smooth animations.</p><p>I also gave the website my own signature VOLSCHENK BUILT touch — adding depth, movement and thoughtful details that make it more than just another business website. The result is a distinctive digital experience that reflects the company behind it while making it easy for customers to explore their services and get in touch.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
+      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-sss-hero.jpg" alt="SSS Furniture Removals desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-sss-detail.jpg" alt="SSS Furniture Removals additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">02 <span></span> HOUSEHOLD & OFFICE REMOVALS</p><h3>SSS Furniture Removals</h3><p class="vb-project-description">A responsive moving-services website with clear service information, customer reviews and an online quote enquiry experience.</p><div class="vb-project-tags"><span>HTML5</span><span>Custom CSS3</span><span>JavaScript</span><span>Bootstrap 5</span><span>3D Hero Animation</span><span>Multi-Step Forms</span><span>Responsive Design</span></div><div class="vb-project-actions"><a href="https://www.sssfurnitureremovals.co.za/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-02" class="vb-case-toggle" aria-controls="vb-case-02" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-02" hidden><h4>PROJECT APPROACH</h4><p>For SSS Furniture Removals, I wanted the website to feel as welcoming and reassuring as the service itself. I built the experience around a simple idea: moving is a big moment in someone’s life, and finding the right help should feel easy.</p><p>Clear information, customer reviews and a straightforward quote process all play a part. I brought in my signature VOLSCHENK BUILT touch with cinematic imagery, smooth movement and carefully considered details — giving a practical moving-company website its own character and a more personal feel.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
+      <article class="vb-project-card vb-reveal"><div class="vb-project-media"><div class="vb-project-device"><div class="vb-device-bar"><span></span><span></span><span></span></div><img src="work-boost-hero.jpg" alt="Boost by Fear desktop website preview" loading="lazy"></div><div class="vb-project-phone"><img src="work-boost-detail.jpg" alt="Boost by Fear additional website preview" loading="lazy"></div></div><div class="vb-project-content"><p class="vb-project-index">03 <span></span> AUTOMOTIVE PERFORMANCE</p><h3>Boost by Fear</h3><p class="vb-project-description">A dark, performance-inspired website showcasing automotive services, project imagery and contact information.</p><div class="vb-project-tags"><span>HTML5</span><span>Custom CSS3</span><span>JavaScript</span><span>Responsive Design</span><span>Scroll Animations</span><span>Custom Gallery</span></div><div class="vb-project-actions"><a href="https://boostby-fear.vercel.app/" target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span aria-hidden="true">↗</span></a><a href="#vb-case-03" class="vb-case-toggle" aria-controls="vb-case-03" aria-expanded="false">VIEW CASE STUDY <span aria-hidden="true">↗</span></a></div><div class="vb-case-panel" id="vb-case-03" hidden><h4>PROJECT APPROACH</h4><p>Boost by Fear called for something completely different. I wanted the website to capture the energy and precision of automotive performance, so I built it around a dark visual style, striking imagery and bold typography that puts the work front and centre.</p><p>My VOLSCHENK BUILT touch comes through in the motion, atmosphere and small interactive details. I wanted visitors to feel the personality of the brand from the first screen, while still being able to explore the services and get in touch without distraction.</p><p class="vb-case-foot">Built using the technologies listed above. Explore the live website to see the finished work.</p></div></div></article>
     </div><div class="vb-projects-footer"><div><p class="vb-projects-eyebrow">THE PROCESS</p><h3>From Idea to Live Website.</h3><p>Understand the brief, create the design, develop the experience and prepare it for launch.</p></div><div class="vb-projects-steps"><span><b>01</b> PLAN</span><span><b>02</b> DESIGN</span><span><b>03</b> DEVELOP</span><span><b>04</b> DEPLOY</span></div></div>
   </div>
 </section>
@@ -4722,7 +4538,7 @@ a.contact-detail:hover{
 <div class="vb-eyebrow">PROJECT ENQUIRIES / LET'S BUILD</div>
 <h2 class="vb-title" id="vb-enquiry-title">START YOUR<br>BUILD.</br></h2>
 <p class="vb-muted">Tell me what you have in mind. Every bespoke website starts with a conversation.</p>
-<p class="vb-muted" style="margin-top:28px">Prefer email? <a href="mailto:nadine@volschenkbuilt.co.za" style="color:white;text-decoration:underline;text-underline-offset:5px">nadine@volschenkbuilt.co.za</a></p>
+<p class="vb-muted" style="margin-top:28px">Prefer email? <a href="mailto:nadine.marshall45@gmail.com" style="color:white;text-decoration:underline;text-underline-offset:5px">nadine.marshall45@gmail.com</a></p>
 </div>
 <form action="https://formspree.io/f/YOUR_FORM_ID" class="vb-form vb-reveal" id="vbEnquiryForm" method="POST">
 <div class="vb-form-row">
@@ -4739,25 +4555,21 @@ a.contact-detail:hover{
 </div>
 </section>
 <!-- =======================================================
-     BUSINESS CARD — FINAL CONTACT DETAIL
+     FROM CODE TO CREATION — FINAL SECTION
 ======================================================= -->
-<section aria-label="VOLSCHENK BUILT business card" class="business-card-contact">
-<div class="business-card-section">
-<div class="business-card-scene" id="businessCardScene">
-<svg class="vb-weave-orbits vb-weave-rear" viewBox="-140 -110 860 590" aria-hidden="true"><path d="M607.15,83.80L609.38,86.93L611.41,90.14L613.24,93.44L614.86,96.82L616.26,100.29L617.45,103.84M-24.12,292.23L-25.23,288.64L-26.11,285.01L-26.77,281.32L-27.19,277.60L-27.40,273.83L-27.38,270.03L-27.15,266.20L-26.70,262.33L-26.04,258.44L-25.17,254.53L-24.10,250.59L-22.83,246.63L-21.35,242.66L-19.68,238.68L-17.82,234.69L-15.77,230.68L-13.54,226.68L-11.12,222.67L-8.53,218.66L-5.76,214.65L-2.82,210.65L0.28,206.65L3.55,202.66L6.98,198.69L10.57,194.72L14.31,190.78L18.20,186.84L22.23,182.93L26.41,179.04L30.72,175.17L35.17,171.33L39.75,167.51L44.46,163.72L49.30,159.96L54.25,156.23L59.32,152.53L64.51,148.87L69.81,145.24L75.21,141.65L80.72,138.10L86.33,134.59L92.03,131.12L97.83,127.69L103.72,124.30L109.70,120.96L115.77,117.67L121.91,114.42L128.13,111.22L134.43,108.07L140.80,104.97L147.24,101.93L153.74,98.93L160.31,95.99L166.94,93.11L173.62,90.28L180.36,87.50L187.15,84.79L193.99,82.13L200.87,79.53L207.80,77.00L214.76,74.52L221.76,72.11L228.80,69.75L235.87,67.47L242.96,65.25L250.08,63.09L257.22,61.00L264.38,58.98L271.56,57.02L278.75,55.14L285.95,53.32L293.16,51.58L300.37,49.90L307.59,48.30L314.80,46.77L322.01,45.32L329.22,43.94L336.41,42.63L343.60,41.40L350.76,40.25L357.91,39.17L365.04,38.17L372.14,37.26L379.21,36.42L386.26,35.66L393.27,34.98L400.24,34.39L407.17,33.87L414.05,33.44L420.89,33.10L427.68,32.84L434.42,32.66L441.10,32.57L447.71,32.57L454.27,32.65L460.75,32.82L467.17,33.08L473.51,33.43L479.77,33.87L485.95,34.40L492.04,35.02L498.04,35.73L503.95,36.53L509.76,37.42L515.48,38.41L521.08,39.49L526.58,40.66L531.96,41.92L537.23,43.28L542.37,44.74L547.39,46.28L552.28,47.92L557.03,49.66L561.65,51.49L566.12,53.42L570.45,55.43L574.63,57.55L578.65,59.76L582.51,62.06L586.21,64.45L589.74,66.94L593.10,69.52L596.28,72.20L599.28,74.96L602.09,77.82L604.72,80.77L607.15,83.80" fill="none" stroke="white" stroke-opacity="0.72" stroke-width="1.15" vector-effect="non-scaling-stroke"/><path d="M498.21,383.98L497.75,386.16L497.15,388.22L496.39,390.14L495.48,391.94L494.42,393.60M70.64,-29.02L72.16,-30.23L73.82,-31.28L75.62,-32.18L77.55,-32.93L79.61,-33.53L81.79,-33.98L84.10,-34.29L86.52,-34.45L89.06,-34.46L91.72,-34.34L94.48,-34.07L97.35,-33.67L100.33,-33.14L103.40,-32.47L106.58,-31.66L109.84,-30.73L113.20,-29.68L116.65,-28.50L120.17,-27.19L123.79,-25.77L127.48,-24.23L131.24,-22.57L135.08,-20.80L138.99,-18.91L142.96,-16.92L147.00,-14.82L151.11,-12.62L155.26,-10.32L159.48,-7.91L163.75,-5.41L168.07,-2.81L172.43,-0.12L176.84,2.67L181.30,5.54L185.79,8.50L190.33,11.54L194.89,14.67L199.49,17.88L204.13,21.16L208.78,24.53L213.47,27.96L218.18,31.47L222.91,35.05L227.66,38.69L232.43,42.41L237.21,46.18L242.00,50.02L246.81,53.92L251.62,57.88L256.45,61.89L261.27,65.96L266.10,70.08L270.93,74.25L275.76,78.47L280.58,82.74L285.40,87.05L290.22,91.40L295.02,95.80L299.82,100.23L304.60,104.71L309.37,109.21L314.12,113.76L318.85,118.33L323.56,122.94L328.26,127.57L332.93,132.23L337.57,136.92L342.19,141.63L346.77,146.36L351.33,151.11L355.86,155.88L360.35,160.66L364.80,165.46L369.22,170.27L373.60,175.09L377.94,179.92L382.23,184.76L386.48,189.60L390.68,194.44L394.83,199.29L398.93,204.13L402.98,208.97L406.98,213.81L410.92,218.64L414.80,223.46L418.62,228.27L422.38,233.06L426.07,237.84L429.70,242.61L433.26,247.35L436.75,252.07L440.17,256.77L443.52,261.44L446.79,266.09L449.98,270.70L453.09,275.28L456.11,279.82L459.06,284.33L461.91,288.79L464.68,293.21L467.36,297.59L469.94,301.92L472.43,306.20L474.82,310.42L477.11,314.59L479.29,318.70L481.38,322.74L483.36,326.73L485.22,330.64L486.98,334.49L488.62,338.26L490.15,341.95L491.56,345.57L492.85,349.11L494.02,352.55L495.07,355.92L495.99,359.19L496.77,362.36L497.43,365.44L497.96,368.42L498.35,371.29L498.60,374.05L498.72,376.71L498.69,379.25L498.52,381.68L498.21,383.98" fill="none" stroke="white" stroke-opacity="0.48" stroke-width="1.15" vector-effect="non-scaling-stroke"/><path d="M606.58,14.36L609.74,17.51L612.72,20.80L615.50,24.22L618.07,27.78L620.44,31.47M-19.14,360.93L-20.95,356.93L-22.53,352.84L-23.89,348.66L-25.01,344.40L-25.90,340.06L-26.58,335.64L-27.03,331.15L-27.26,326.59L-27.27,321.97L-27.07,317.28L-26.66,312.54L-26.04,307.75L-25.22,302.91L-24.19,298.02L-22.96,293.09L-21.54,288.13L-19.93,283.12L-18.12,278.09L-16.13,273.03L-13.96,267.94L-11.60,262.83L-9.07,257.70L-6.37,252.56L-3.50,247.41L-0.46,242.24L2.74,237.07L6.10,231.89L9.62,226.72L13.29,221.54L17.11,216.37L21.08,211.20L25.19,206.05L29.44,200.90L33.82,195.77L38.34,190.66L42.99,185.57L47.76,180.49L52.66,175.44L57.67,170.42L62.80,165.42L68.05,160.45L73.41,155.52L78.87,150.61L84.44,145.75L90.11,140.92L95.87,136.13L101.73,131.38L107.69,126.67L113.73,122.01L119.86,117.40L126.07,112.83L132.36,108.32L138.72,103.85L145.17,99.44L151.68,95.08L158.26,90.78L164.91,86.54L171.61,82.36L178.38,78.24L185.21,74.18L192.09,70.18L199.02,66.25L205.99,62.39L213.02,58.60L220.08,54.87L227.19,51.22L234.33,47.64L241.51,44.14L248.72,40.71L255.96,37.36L263.22,34.09L270.51,30.89L277.81,27.78L285.14,24.75L292.47,21.81L299.82,18.95L307.18,16.18L314.54,13.49L321.90,10.90L329.27,8.40L336.63,5.99L343.98,3.67L351.32,1.45L358.65,-0.67L365.96,-2.70L373.26,-4.62L380.53,-6.45L387.77,-8.17L394.99,-9.79L402.17,-11.31L409.32,-12.71L416.42,-14.02L423.49,-15.21L430.50,-16.29L437.47,-17.26L444.38,-18.11L451.24,-18.86L458.03,-19.48L464.76,-19.99L471.42,-20.38L478.01,-20.66L484.52,-20.81L490.95,-20.84L497.29,-20.74L503.55,-20.53L509.71,-20.18L515.78,-19.71L521.74,-19.12L527.60,-18.39L533.34,-17.53L538.97,-16.55L544.49,-15.43L549.88,-14.18L555.14,-12.80L560.27,-11.28L565.26,-9.63L570.11,-7.85L574.81,-5.93L579.36,-3.87L583.75,-1.68L587.99,0.65L592.05,3.12L595.95,5.73L599.67,8.47L603.22,11.35L606.58,14.36" fill="none" stroke="white" stroke-opacity="0.34" stroke-width="1.15" vector-effect="non-scaling-stroke"/></svg><svg class="vb-weave-orbits vb-weave-front" viewBox="-140 -110 860 590" aria-hidden="true"><path d="M617.45,103.84L618.41,107.47L619.15,111.18L619.67,114.96L619.95,118.83L619.99,122.76L619.80,126.77L619.37,130.84L618.69,134.98L617.77,139.19L616.61,143.46L615.19,147.78L613.52,152.16L611.59,156.60L609.41,161.08L606.97,165.61L604.28,170.18L601.33,174.79L598.12,179.44L594.65,184.12L590.92,188.83L586.94,193.56L582.70,198.31L578.20,203.07L573.45,207.85L568.45,212.63L563.20,217.42L557.70,222.20L551.95,226.98L545.97,231.74L539.75,236.49L533.30,241.22L526.61,245.92L519.71,250.59L512.58,255.22L505.24,259.81L497.70,264.35L489.96,268.85L482.02,273.29L473.89,277.66L465.59,281.97L457.12,286.21L448.48,290.37L439.68,294.46L430.74,298.45L421.67,302.36L412.46,306.17L403.14,309.89L393.70,313.50L384.17,317.00L374.55,320.39L364.84,323.67L355.07,326.83L345.24,329.86L335.37,332.77L325.45,335.55L315.51,338.20L305.56,340.72L295.60,343.09L285.64,345.33L275.71,347.43L265.79,349.38L255.92,351.19L246.10,352.85L236.33,354.36L226.63,355.72L217.01,356.93L207.48,357.99L198.05,358.90L188.73,359.66L179.52,360.27L170.44,360.73L161.49,361.03L152.68,361.19L144.03,361.20L135.53,361.06L127.20,360.77L119.04,360.34L111.06,359.76L103.27,359.04L95.67,358.18L88.26,357.19L81.06,356.06L74.07,354.79L67.29,353.40L60.73,351.87L54.39,350.22L48.27,348.45L42.38,346.56L36.73,344.55L31.30,342.43L26.11,340.20L21.16,337.86L16.45,335.42L11.98,332.87L7.76,330.23L3.77,327.50L0.03,324.67L-3.47,321.76L-6.73,318.77L-9.74,315.69L-12.52,312.54L-15.05,309.32L-17.34,306.03L-19.39,302.67L-21.20,299.25L-22.78,295.77L-24.12,292.23" fill="none" stroke="white" stroke-opacity="0.72" stroke-width="1.15" vector-effect="non-scaling-stroke"/><path d="M494.42,393.60L493.21,395.11L491.84,396.49L490.32,397.72L488.64,398.81L486.80,399.74L484.80,400.52L482.65,401.14L480.33,401.61L477.86,401.91L475.22,402.05L472.43,402.03L469.48,401.83L466.36,401.47L463.09,400.93L459.66,400.22L456.08,399.34L452.34,398.28L448.44,397.04L444.39,395.62L440.19,394.02L435.85,392.23L431.35,390.27L426.71,388.13L421.93,385.80L417.02,383.30L411.97,380.61L406.78,377.74L401.47,374.69L396.04,371.47L390.49,368.06L384.82,364.49L379.04,360.74L373.15,356.82L367.17,352.73L361.09,348.47L354.92,344.06L348.67,339.48L342.34,334.75L335.94,329.87L329.48,324.84L322.95,319.67L316.38,314.36L309.76,308.92L303.10,303.35L296.41,297.65L289.70,291.85L282.97,285.93L276.23,279.90L269.49,273.78L262.75,267.57L256.03,261.27L249.33,254.89L242.65,248.44L236.01,241.93L229.42,235.36L222.87,228.74L216.38,222.08L209.96,215.38L203.61,208.65L197.33,201.91L191.14,195.15L185.05,188.39L179.05,181.62L173.15,174.87L167.37,168.14L161.70,161.43L156.16,154.75L150.74,148.11L145.45,141.51L140.31,134.97L135.30,128.49L130.44,122.07L125.74,115.72L121.18,109.45L116.79,103.27L112.56,97.17L108.49,91.17L104.59,85.28L100.86,79.48L97.31,73.80L93.93,68.24L90.72,62.79L87.69,57.47L84.84,52.27L82.17,47.21L79.69,42.29L77.38,37.50L75.25,32.85L73.31,28.35L71.54,24.00L69.96,19.79L68.55,15.74L67.33,11.84L66.28,8.10L65.40,4.51L64.71,1.07L64.18,-2.20L63.83,-5.31L63.65,-8.27L63.63,-11.06L63.78,-13.70L64.10,-16.17L64.57,-18.48L65.20,-20.64L65.99,-22.63L66.93,-24.46L68.02,-26.14L69.26,-27.66L70.64,-29.02" fill="none" stroke="white" stroke-opacity="0.48" stroke-width="1.15" vector-effect="non-scaling-stroke"/><path d="M620.44,31.47L622.59,35.29L624.53,39.25L626.25,43.34L627.75,47.55L629.01,51.90L630.04,56.37L630.84,60.96L631.40,65.68L631.71,70.52L631.77,75.47L631.59,80.54L631.15,85.72L630.45,91.01L629.50,96.41L628.29,101.91L626.81,107.50L625.07,113.20L623.06,118.98L620.78,124.86L618.23,130.81L615.41,136.85L612.32,142.96L608.97,149.13L605.34,155.38L601.44,161.68L597.27,168.03L592.84,174.43L588.14,180.88L583.18,187.36L577.95,193.87L572.47,200.41L566.73,206.96L560.73,213.53L554.49,220.10L548.01,226.66L541.29,233.22L534.33,239.77L527.15,246.29L519.75,252.78L512.12,259.24L504.29,265.65L496.26,272.01L488.04,278.32L479.62,284.56L471.03,290.73L462.27,296.82L453.35,302.83L444.27,308.74L435.05,314.56L425.70,320.27L416.23,325.87L406.64,331.36L396.95,336.72L387.17,341.95L377.30,347.04L367.36,352.00L357.36,356.80L347.31,361.46L337.23,365.96L327.11,370.30L316.98,374.47L306.84,378.48L296.71,382.31L286.59,385.96L276.50,389.44L266.45,392.73L256.45,395.83L246.50,398.75L236.62,401.47L226.82,404.01L217.11,406.34L207.50,408.49L198.00,410.43L188.61,412.18L179.35,413.74L170.22,415.09L161.23,416.25L152.40,417.21L143.72,417.97L135.20,418.53L126.86,418.91L118.70,419.09L110.72,419.07L102.94,418.87L95.35,418.48L87.96,417.91L80.78,417.15L73.81,416.21L67.06,415.10L60.53,413.81L54.22,412.35L48.13,410.72L42.27,408.92L36.65,406.97L31.26,404.86L26.10,402.59L21.19,400.17L16.51,397.61L12.06,394.90L7.86,392.06L3.90,389.08L0.19,385.97L-3.29,382.74L-6.53,379.39L-9.53,375.91L-12.29,372.33L-14.81,368.63L-17.09,364.83L-19.14,360.93" fill="none" stroke="white" stroke-opacity="0.34" stroke-width="1.15" vector-effect="non-scaling-stroke"/></svg><div aria-hidden="true" class="card-orbit card-orbit-one"></div>
-<div aria-hidden="true" class="card-orbit card-orbit-two"></div>
-<div aria-hidden="true" class="card-orbit card-orbit-three"></div>
-<div aria-label="VOLSCHENK BUILT business card back" class="business-card-rear">
-<img alt="VOLSCHENK BUILT business card back" src="business-card-back.jpg"/>
-</div>
-<div aria-label="VOLSCHENK BUILT business card front" class="business-card" id="businessCard">
-<img alt="VOLSCHENK BUILT business card front" src="business-card-front.jpg"/>
-<div class="business-card-glare" id="businessCardGlare"></div>
-</div>
-</div>
-<div class="business-card-hint">
-            A CLOSER LOOK AT VOLSCHENK BUILT
-        </div>
+<section aria-label="From code to creation" class="business-card-contact vb-creation-section">
+<div class="vb-creation-wrap" id="vbCreation" aria-label="Code transforms into a finished website design">
+  <div class="vb-creation-heading"><span class="vb-creation-kicker">VOLSCHENK BUILT / THE PROCESS</span><h2>FROM CODE.<br><strong>TO CREATION.</strong></h2><p>Every detail starts with an idea. Then I build it, line by line.</p></div>
+  <div class="vb-creation-stage">
+    <div class="vb-creation-browser">
+      <div class="vb-creation-toolbar"><div class="vb-creation-dots"><i></i><i></i><i></i></div><span class="vb-creation-address">volschenkbuilt.com / bespoke-build</span><span class="vb-creation-state" id="vbCreationState">01 / CODE</span></div>
+      <div class="vb-creation-screen">
+        <div class="vb-creation-code" aria-hidden="true"><div><em>01</em> <span class="syntax-muted">&lt;!-- Crafted from scratch --&gt;</span></div><div><em>02</em> <span class="syntax-blue">&lt;section</span> class=<span class="syntax-gold">"experience"</span><span class="syntax-blue">&gt;</span></div><div><em>03</em> &nbsp; <span class="syntax-blue">&lt;h1&gt;</span>Built bespoke.<span class="syntax-blue">&lt;/h1&gt;</span></div><div><em>04</em> &nbsp; <span class="syntax-blue">&lt;p&gt;</span>Built to last.<span class="syntax-blue">&lt;/p&gt;</span></div><div><em>05</em> <span class="syntax-blue">&lt;/section&gt;</span></div><div><em>06</em> <span class="syntax-muted">/* Design meets development */</span></div><div><em>07</em> <span class="syntax-gold">.experience</span> {</div><div><em>08</em> &nbsp; display: <span class="syntax-blue">grid</span>;</div><div><em>09</em> &nbsp; transform: <span class="syntax-blue">translateZ(0)</span>;</div><div><em>10</em> }</div></div>
+        <div class="vb-creation-result" aria-hidden="true"><div class="vb-creation-result-grid"></div><div class="vb-creation-result-top"><span>V / B</span><span>DESIGN&nbsp;&nbsp; DEVELOPMENT&nbsp;&nbsp; DETAIL</span></div><div class="vb-creation-result-center"><span>INDEPENDENT WEB DEVELOPMENT</span><strong>BUILT<br>BESPOKE.</strong><span class="vb-creation-result-line"></span><p>Distinctive digital experiences.<br>Thoughtfully designed. Precisely built.</p><span class="vb-creation-result-button">EXPLORE THE WORK ↗</span></div><div class="vb-creation-result-bottom"><span>01 — CONCEPT</span><span>02 — CRAFT</span><span>03 — CREATION</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="vb-creation-foot"><span>01 / WRITE THE CODE</span><span class="vb-creation-progress"><span></span></span><span>02 / BRING IT TO LIFE</span></div>
 </div>
 </section>
 <script>
@@ -5229,136 +5041,6 @@ if(hasFinePointer){
 }
 
 
-/* =========================================================
-   FLOATING BUSINESS CARD INTERACTION
-========================================================= */
-
-const businessCard = document.getElementById('businessCard');
-const businessCardScene = document.getElementById('businessCardScene');
-const businessCardGlare = document.getElementById('businessCardGlare');
-const businessCardRear = businessCardScene
-    ? businessCardScene.querySelector('.business-card-rear')
-    : null;
-
-
-if (businessCardScene && !hasFinePointer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let scrollFrame = null;
-    const updateMobileCardMotion = () => {
-        scrollFrame = null;
-        const rect = businessCardScene.getBoundingClientRect();
-        const viewport = window.innerHeight || 1;
-        const progress = Math.max(-1, Math.min(1, (viewport / 2 - (rect.top + rect.height / 2)) / viewport));
-        businessCardScene.style.setProperty('--tiltX', `${(progress * 9).toFixed(2)}deg`);
-        businessCardScene.style.setProperty('--tiltY', `${(progress * -11).toFixed(2)}deg`);
-        businessCardScene.style.setProperty('--moveY', `${(progress * -9).toFixed(2)}px`);
-    };
-    window.addEventListener('scroll', () => {
-        if (scrollFrame === null) scrollFrame = requestAnimationFrame(updateMobileCardMotion);
-    }, { passive:true });
-    updateMobileCardMotion();
-}
-
-if (businessCardScene) {
-    const businessCardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            businessCardScene.classList.toggle(
-                'card-scene-visible',
-                entry.isIntersecting
-            );
-        });
-    }, { threshold: 0.25 });
-
-    businessCardObserver.observe(businessCardScene);
-}
-
-if (businessCardScene && hasFinePointer) {
-    let targetTiltX = 0;
-    let targetTiltY = 0;
-    let currentTiltX = 0;
-    let currentTiltY = 0;
-    let targetMoveX = 0;
-    let targetMoveY = 0;
-    let currentMoveX = 0;
-    let currentMoveY = 0;
-    let targetGlareX = -120;
-    let currentGlareX = -120;
-    let targetGlareOpacity = 0.12;
-    let currentGlareOpacity = 0.12;
-    let cardInteractionFrame = null;
-    let pointerInsideCardScene = false;
-
-    const animateCardInteraction = () => {
-        // Smoothly interpolate each movement to avoid sudden jumps.
-        currentTiltX += (targetTiltX - currentTiltX) * 0.075;
-        currentTiltY += (targetTiltY - currentTiltY) * 0.075;
-        currentMoveX += (targetMoveX - currentMoveX) * 0.075;
-        currentMoveY += (targetMoveY - currentMoveY) * 0.075;
-        currentGlareX += (targetGlareX - currentGlareX) * 0.10;
-        currentGlareOpacity += (targetGlareOpacity - currentGlareOpacity) * 0.10;
-
-        businessCardScene.style.setProperty('--tiltX', `${currentTiltX}deg`);
-        businessCardScene.style.setProperty('--tiltY', `${currentTiltY}deg`);
-        businessCardScene.style.setProperty('--moveX', `${currentMoveX}px`);
-        businessCardScene.style.setProperty('--moveY', `${currentMoveY}px`);
-
-        if (businessCardGlare) {
-            businessCardGlare.style.opacity = String(currentGlareOpacity);
-            businessCardGlare.style.transform = `translateX(${currentGlareX}%)`;
-        }
-
-        const stillMoving =
-            Math.abs(targetTiltX - currentTiltX) > 0.03 ||
-            Math.abs(targetTiltY - currentTiltY) > 0.03 ||
-            Math.abs(targetMoveX - currentMoveX) > 0.1 ||
-            Math.abs(targetMoveY - currentMoveY) > 0.1 ||
-            Math.abs(targetGlareX - currentGlareX) > 0.1 ||
-            Math.abs(targetGlareOpacity - currentGlareOpacity) > 0.003;
-
-        if (stillMoving || pointerInsideCardScene) {
-            cardInteractionFrame = requestAnimationFrame(animateCardInteraction);
-        } else {
-            cardInteractionFrame = null;
-        }
-    };
-
-    const startCardInteraction = () => {
-        if (cardInteractionFrame === null) {
-            cardInteractionFrame = requestAnimationFrame(animateCardInteraction);
-        }
-    };
-
-    businessCardScene.addEventListener('mouseenter', () => {
-        pointerInsideCardScene = true;
-        startCardInteraction();
-    });
-
-    businessCardScene.addEventListener('mousemove', (e) => {
-        const rect = businessCardScene.getBoundingClientRect();
-        const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-        const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-
-        // Clear, deliberate parallax: the cards tilt and shift with the pointer.
-        targetTiltY = (x - 0.5) * 28;
-        targetTiltX = (0.5 - y) * 22;
-        targetMoveX = (x - 0.5) * 24;
-        targetMoveY = (y - 0.5) * 16;
-        targetGlareX = (x * 220) - 110;
-        targetGlareOpacity = 0.24 + Math.abs(x - 0.5) * 0.42;
-        startCardInteraction();
-    });
-
-    businessCardScene.addEventListener('mouseleave', () => {
-        pointerInsideCardScene = false;
-        targetTiltX = 0;
-        targetTiltY = 0;
-        targetMoveX = 0;
-        targetMoveY = 0;
-        targetGlareX = -120;
-        targetGlareOpacity = 0.12;
-        startCardInteraction();
-    });
-}
-
 /* Removed obsolete serviceObserver call: observer was never defined. */
 
 
@@ -5435,111 +5117,23 @@ if (businessCardScene && hasFinePointer) {
 <script>
 /* Project case studies — scoped, accessible toggles */
 document.querySelectorAll('.vb-projects .vb-case-toggle').forEach(function(link){
-  link.addEventListener('click',function(event){event.preventDefault();var panel=document.getElementById(link.getAttribute('aria-controls'));if(!panel)return;var open=panel.hidden;panel.hidden=!open;link.setAttribute('aria-expanded',String(open));link.innerHTML=(open?'CLOSE CASE STUDY':'VIEW CASE STUDY')+' <span aria-hidden="true">↗</span>';});
-});
-</script>
-<script id="vb-independent-orbit-motion">
-(()=>{
-const businessCardScene=document.getElementById("businessCardScene");
-if (businessCardScene) {
-    // Project one continuous orbit into matching rear and foreground segments.
-    const ns = 'http://www.w3.org/2000/svg';
-    const layers = ['rear', 'front'].map(side => Array.from(businessCardScene.querySelector('.vb-weave-' + side).querySelectorAll('path')));
-    layers.forEach(paths => {
-        while(paths.length < 5) {
-            const path=paths[0].cloneNode(false);
-            path.setAttribute('d',''); paths[0].parentNode.appendChild(path); paths.push(path);
-        }
+  link.addEventListener('click',function(event){
+    event.preventDefault();
+    var panel=document.getElementById(link.getAttribute('aria-controls'));
+    if(!panel)return;
+    var open=panel.hidden;
+    document.querySelectorAll('.vb-projects .vb-case-panel').forEach(function(other){other.hidden=true;});
+    document.querySelectorAll('.vb-projects .vb-case-toggle').forEach(function(other){
+      other.setAttribute('aria-expanded','false');
+      other.innerHTML='VIEW CASE STUDY <span aria-hidden="true">↗</span>';
     });
-    const halos = layers.map(paths => paths.slice(0,5).map(path => {
-        const halo = path.cloneNode(false);
-        halo.setAttribute('class','vb-orbit-band');
-        halo.setAttribute('stroke','rgba(225,240,255,.13)');
-        halo.setAttribute('stroke-width','3.5');
-        path.parentNode.insertBefore(halo,path);
-        return halo;
-    }));
-    const motes = layers.map(paths => [0,1,2,3,4].map(ring => Array.from({length:12},(_,i)=>{
-        const dot=document.createElementNS(ns,'circle');
-        dot.setAttribute('fill', i%4===0?'#ffffff':'#c8deeb');
-        dot.setAttribute('class',i%4===0?'vb-orbit-spark':'vb-orbit-dust');
-        paths[0].parentNode.appendChild(dot); return dot;
-    })));
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const mobileOrbit = window.matchMedia('(max-width: 768px) and (pointer: coarse)');
-    let visible = true, frame = null, phase = 0, last = null, lastDraw = null;
-    function draw(t) {
-        for (let ring = 0; ring < 5; ring++) {
-            const turn = t * [.13,-.11,.16,-.09,.12][ring] + ring * .75;
-            const tilt = [1.12,.82,1.28,.96,1.18][ring];
-            const roll = [-.19,.9,-.75,.45,1.45][ring] + t * [.065,-.055,.045,-.07,.05][ring];
-            const radius = [238,260,279,250,292][ring];
-            const parts = ['', '']; let previousSide = null, previous = null;
-            const segments = mobileOrbit.matches ? 100 : 240;
-            for (let n = 0; n <= segments; n++) {
-                const angle = n / segments * Math.PI * 2;
-                let x = Math.cos(angle)*radius;
-                let y = Math.sin(angle)*radius;
-                const depth = y*Math.sin(tilt);
-                y *= Math.cos(tilt);
-                const z = depth*Math.cos(turn)-x*Math.sin(turn);
-                x = x*Math.cos(turn)+depth*Math.sin(turn);
-                const rx = x*Math.cos(roll)-y*Math.sin(roll);
-                const ry = x*Math.sin(roll)+y*Math.cos(roll);
-                const perspective = 1100/(1100-z);
-                const point = [(290+rx*perspective).toFixed(2),(175+ry*perspective).toFixed(2)];
-                const side = z > 15 ? 1 : 0;
-                if (side !== previousSide) {
-                    if (previous) parts[side] += 'M'+previous.join(',')+'L'+point.join(',');
-                    else parts[side] += 'M'+point.join(',');
-                } else parts[side] += 'L'+point.join(',');
-                previousSide=side; previous=point;
-            }
-            layers[0][ring].setAttribute('d', parts[0]);
-            layers[1][ring].setAttribute('d', parts[1]);
-            halos[0][ring].setAttribute('d',parts[0]);
-            halos[1][ring].setAttribute('d',parts[1]);
-            for(let i=0;i<12;i++){
-                const angle=i/12*Math.PI*2+t*[.36,-.27,.3,-.23,.25][ring];
-                let x=Math.cos(angle)*radius,y=Math.sin(angle)*radius;
-                const depth=y*Math.sin(tilt); y*=Math.cos(tilt);
-                const z=depth*Math.cos(turn)-x*Math.sin(turn);x=x*Math.cos(turn)+depth*Math.sin(turn);
-                const f=1100/(1100-z),px=290+(x*Math.cos(roll)-y*Math.sin(roll))*f,py=175+(x*Math.sin(roll)+y*Math.cos(roll))*f;
-                const side=z>15?1:0;
-                for(let layer=0;layer<2;layer++){
-                    const dot=motes[layer][ring][i];dot.setAttribute('cx',px.toFixed(2));dot.setAttribute('cy',py.toFixed(2));
-                    dot.setAttribute('r',((i%4===0?1.65:.7)*f).toFixed(2));
-                    dot.setAttribute('opacity',layer===side?(i%4===0?.9:.55):0);
-                }
-            }
-
-        }
+    if(open){
+      panel.hidden=false;
+      link.setAttribute('aria-expanded','true');
+      link.innerHTML='CLOSE CASE STUDY <span aria-hidden="true">↗</span>';
     }
-    function animate(now) {
-        frame=null;
-        if (!visible || document.hidden || reduced.matches) { last=null; return; }
-        if (last !== null) phase += Math.min(64,now-last)/1000;
-        last=now;
-        if (!mobileOrbit.matches || lastDraw === null || now-lastDraw >= 32) {
-            draw(phase); lastDraw=now;
-        }
-        frame=requestAnimationFrame(animate);
-    }
-    function resume() {
-        if (!frame && visible && !document.hidden && !reduced.matches) frame=requestAnimationFrame(animate);
-    }
-    layers.forEach(paths => { paths.forEach(path => { path.setAttribute('stroke-width', '.9'); path.setAttribute('stroke', 'rgba(240,244,255,.66)'); }); });
-    draw(0);
-    if ('IntersectionObserver' in window) {
-        new IntersectionObserver(entries => { visible=entries[0].isIntersecting; resume(); }, {rootMargin:'120px'}).observe(businessCardScene);
-    }
-    document.addEventListener('visibilitychange', resume);
-    mobileOrbit.addEventListener?.('change', () => { lastDraw=null; resume(); });
-    reduced.addEventListener('change', () => { last=null; if(reduced.matches) draw(0); else resume(); });
-    resume();
-}
-
-})();
+  });
+});
 </script>
 <script id="vb-architecture-pointer">
 (()=>{const visual=document.querySelector('.signature-architecture');if(!visual||!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;visual.addEventListener('pointermove',e=>{const r=visual.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;visual.style.setProperty('--arch-x',(-y*9).toFixed(2)+'deg');visual.style.setProperty('--arch-y',(x*11).toFixed(2)+'deg')});visual.addEventListener('pointerleave',()=>{visual.style.setProperty('--arch-x','0deg');visual.style.setProperty('--arch-y','0deg')})})();
@@ -5560,6 +5154,25 @@ if (businessCardScene) {
  const reset=()=>{if(!mobile.matches||reduce.matches)targets.forEach(el=>el.classList.remove('mobile-showcase-active'))};
  mobile.addEventListener?.('change',reset);
  reduce.addEventListener?.('change',reset);
+})();
+</script>
+<script id="vb-code-to-creation-motion">
+(()=>{
+ const wrap=document.getElementById('vbCreation');if(!wrap)return;
+ const state=document.getElementById('vbCreationState');
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ let finished=false;
+ const show=()=>{
+  wrap.classList.add('is-visible');
+  if(finished)return;
+  finished=true;
+  if(reduced.matches){wrap.classList.add('is-finished');state.textContent='02 / CREATION';return;}
+  // One-shot transformation; no permanent animation loops or scroll calculations.
+  window.setTimeout(()=>{wrap.classList.add('is-finished');state.textContent='02 / CREATION';},2400);
+ };
+ if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){show();observer.disconnect();}},{threshold:.2});observer.observe(wrap);
+ }else show();
 })();
 </script>
 </body>
